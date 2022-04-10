@@ -1,0 +1,237 @@
+body{
+    --primary-color: #2E2F2F;
+    --secondary-color: #2f97c1;
+    --light-color: #F8FFFE;
+    --text-color: #fff;
+    --title-font-family:  'Merriweather', serif;
+    --text-font-family:'Lato', sans-serif;
+
+    min-height: 100vh;
+
+    margin:0;
+}
+
+.nav{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    z-index: 100;
+    position: fixed;
+    width: 100%;
+
+}
+
+.nav__toggle{
+    top:2rem;
+    right:2rem;
+    z-index: 300;
+    position: fixed;
+    opacity: 0;
+    margin:0;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    /* outline: 1px solid red; */
+}
+
+.nav__toggle-1,
+.nav__toggle-2,
+.nav__toggle-3
+{
+    z-index: 200;
+    position:relative;
+    top:2rem;
+    right:2rem;
+
+    width: 40px;
+    height: 5px;
+    
+    border-radius: 1rem;
+    background-color: black;
+    margin-bottom: 5px;
+    transition: transform 0.5s cubic-bezier(0.99,-0.26, 0.37, 1.3), opacity 0.5s cubic-bezier(0.99,-0.26, 0.37, 1.3) ;
+}
+.nav__toggle-1{
+    transform-origin: top left;
+}
+.nav__toggle-2{
+    transform-origin: center center;
+}
+.nav__toggle-3{
+    transform-origin: bottom left;    
+}
+.nav__toggle:checked ~ .nav__toggle-1{
+    transform: rotate(45deg) translateX(5%);
+}
+
+.nav__toggle:checked ~ .nav__toggle-2{
+    transform: rotate(-45deg) translateX(-15%);
+}
+
+.nav__toggle:checked ~ .nav__toggle-3{
+    transform: rotate(-45deg)  scale(0);
+    opacity: 0;
+}
+
+.nav__toggle:checked ~ .nav-container{
+    clip-path: circle(141.2% at 100% 0);
+}
+
+
+.nav-container{
+    box-sizing: border-box;
+    
+    position: absolute;
+    top:0;
+    
+    width: 100vw;
+    height: 100vh;
+    
+    display: flex;
+    justify-content: center;
+    
+    padding:2rem;
+    padding-top: 6rem;
+    
+    font-size: 2rem;
+    background-color: rgb(104, 104, 104);
+    /* transform: translateX(-1000px); */
+    clip-path: circle(0.3% at 100% 0);
+    transition: all 0.5s ease;
+        
+}
+.nav__link-list{
+    margin:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    padding-left:0;
+}
+.nav__link-item{
+    list-style: none;
+}
+.nav__link{
+    color:var(--text-color);
+    text-decoration: none;
+}
+
+.main{
+    z-index: 100;
+    box-sizing: border-box;
+}
+.home{
+    background-color: var(--primary-color);
+    width: 100%;
+    min-height: 100vh;
+}
+
+.home-container{
+    color:var(--text-color);
+    max-width: 1080px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 50vh;
+    padding-right: 2rem;
+    padding-left: 2rem;
+}
+
+.home__cover-image-container{
+    margin:0;
+    position: absolute;
+    top:0;
+    width: 100%;
+}
+.home__cover-image{
+    display: none;
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+}
+
+/* Eye logo */
+.logo-ojo-container{
+    align-self: flex-start;
+    display: flex;
+    padding-left: 1.2rem;
+}
+.ojo-parpados{
+    z-index: 10;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: var(--light-color); 
+    border-radius: 100% 0;
+    transform: rotate(45deg);
+    overflow: hidden;   
+}
+.ojo-parpados::before{
+    content: "";
+    width: 25%;
+    height: 25%;
+    background-color: var(--secondary-color);
+    position: absolute;
+    border-radius: 100%;
+    top:40%;
+    left: 40%;
+    transition: all 1s cubic-bezier(0.61, 0.86, 0.1, 1.1); 
+    animation-name: movement;
+    animation-duration: 10s;
+    animation-timing-function: ease-out ;
+    animation-play-state: running;
+    /* animation-direction: alternate; */
+    animation-iteration-count: infinite;
+}
+@keyframes movement{
+    0% {
+        transform: none;
+    }
+    25% {
+        transform: translateY(20px);
+    }
+    50%{
+        transform: translate(20px);
+    }
+    100%{
+        transform: none;
+    }
+}
+.ojo-parpados::after{
+    content: "";
+    width: 150px;
+    height: 150px;
+    position: absolute;   
+    transform-origin: top center;
+    transform: rotate(-45deg) translate(-50px,-170px);
+    background-color: var(--primary-color);
+
+    transition: all 1s cubic-bezier(0.61, 0.86, 0.1, 1.1); 
+
+}
+
+.logo-ojo-container:hover .ojo-parpados::after{
+    transform: rotate(-45deg) translate(-50px,-100px);
+
+}
+.logo-ojo-container:hover .ojo-parpados::before{
+    transform: scale(1.5);
+}
+
+
+
+.home__title{
+    font-family: var(--title-font-family);
+    font-size: 4rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: 700;
+}
+.home__tittle-description{
+    font-family: var(--text-font-family);
+    font-size: 1.2rem;
+    font-weight: 300;
+}
