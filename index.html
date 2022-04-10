@@ -1,71 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Philosophical Toys</title>
-        <link rel="stylesheet" href="styles/styles.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Merriweather:ital,wght@1,300&display=swap"
-            rel="stylesheet"
-        />
-    </head>
-    <body>
-        <nav class="nav">
-            <input type="checkbox" class="nav__toggle" />
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Philosophical Toys</title>
+    <script src="https://kit.fontawesome.com/527ea01e39.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Space+Mono&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="logo-ojo-container">
+            <div class="ojo-parpados">
+                <span class="ojo__esclerotica"></span>
+                <span class="ojo__iris"></span>
+            </div>
+            <span class="ojo-esclerotica"></span>
+        </div>
+        <input type="checkbox" id="nav__toggle" class="nav__toggle" />
+        <label for="nav__toggle" class="nav__toggle-container">
             <span class="nav__toggle-1"></span>
             <span class="nav__toggle-2"></span>
             <span class="nav__toggle-3"></span>
-            <div class="nav-container">
-                <ul class="nav__link-list">
-                    <li class="nav__link-item">
-                        <a href="#" class="nav__link">Inicio</a>
-                    </li>
-                    <li class="nav__link-item">
-                        <a href="#" class="nav__link">Acerca de</a>
-                    </li>
-                    <li class="nav__link-item">
-                        <a href="#" class="nav__link">Películas</a>
-                    </li>
-                    <li class="nav__link-item">
-                        <a href="#" class="nav__link">Ventura</a>
-                    </li>
-                    <li class="nav__link-item">
-                        <a href="#" class="nav__link">Donar</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <main class="main">
-            <section class="home">
-                <div class="home-container">
-                    <!-- <figure class="home__cover-image-container">
-                        <img
-                            class="home__cover-image"
-                            src="assets/images/portada.webp"
-                            alt="Anomalisa frame"
-                        />
-                    </figure> -->
-                    <div class="logo-ojo-container">
-                        <div class="ojo-parpados">
-                            <span class="ojo__esclerotica"></span>
-                            <span class="ojo__iris"></span>
-                        </div>
-                        <span class="ojo-esclerotica"></span>
-                    </div>
+        </label>
+
+        <div class="nav-container">
+            <ul class="nav__link-list">
+                <li class="nav__link-item">
+                    <a href="#" class="nav__link">Inicio</a>
+                </li>
+                <li class="nav__link-item">
+                    <a href="#" class="nav__link">Acerca de</a>
+                </li>
+                <li class="nav__link-item">
+                    <a href="#" class="nav__link">Películas</a>
+                </li>
+                <li class="nav__link-item">
+                    <a href="#" class="nav__link">Ventura</a>
+                </li>
+                <li class="nav__link-item">
+                    <a href="#" class="nav__link">Donar</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <main class="main">
+        <section class="home">
+            <div class="home-container">
+                <div class="title-container">
                     <h1 class="home__title">Juguetes Filosóficos</h1>
-                    <h2 class="home__tittle-description">
-                        Durante el siglo XIX, los Juguetes Filosóficos
-                        promovieron y acompañaron el desarrollo de los estudios
-                        sobre el movimiento, oscilando entre una mera curiosidad
-                        por los efectos ópticos y una argumentación fisiológica
-                        sobre el funcionamiento de la vista.
-                    </h2>
                 </div>
-            </section>
-        </main>
-    </body>
+                <p class="home__tittle-description">
+                    Más que instrumentos de control de la naturaleza son artefactos proveedores de asombro, ilusión y
+                    esperanza.
+                </p>
+                <a href="#about" class="next-section-arrow">
+                    <i class="fa-solid fa-arrow-down"></i></i>
+                </a>
+            </div>
+        </section>
+        <section id="about" class="about">
+            <div class="about-container">
+                <h2 class="about__title">Acerca de</h2>
+                <p class="about__description">
+                    Juguetes Filosóficos es una asociación sin ánimo de lucro que se encarga de recopilar expresiones
+                    cinematográficas. A su vez su intención es impulsar la promoción del cine peruano independiente,
+                    defender a sus profesionales y analizar la situación de la industria y del propio cine peruano.
+                </p>
+                <figure class="about__image-container">
+                    <img src="./assets/images/afiches-2019-poster-peruanos.jpg"
+                        alt="Afiches de películas peruanas de 2019" class="about__image">
+                </figure>
+                <a href="#movies" class="next-section-arrow">
+                    <i class="fa-solid fa-arrow-down"></i></i>
+                </a>
+            </div>
+        </section>
+        <section id="movies" class="movies">
+            <div class="about-container">
+                <h2 class="about__title">Peliculas</h2>
+
+                <div class="movies__gallery-container">
+                    <div class="movies__img-container">
+                        <div class="movies__img-cover">
+                            <p class="abo">Hola</p>
+                        </div>
+                        <img class="movies__img" src="./assets/images/juliana.jpg" alt="">
+                    </div>
+                    <div class="movies__img-container">
+                        <div class="movies__img-cover">
+
+                        </div>
+                        <img class="movies__img" src="./assets/images/mariposa.jpg" alt="">
+                    </div>
+
+                    <div class="movies__img-container">
+                        <div class="movies__img-cover"></div>
+
+                        <img class="movies__img" src="./assets/images/La_teta_asustada.jpg" alt="">
+                    </div>
+
+                    <div class="movies__img-container">
+                        <div class="movies__img-cover"></div>
+
+                        <img class="movies__img" src="./assets/images/Ojos-que-no-ven-1.jpg" alt="">
+                    </div>
+
+                    <div class="movies__img-container">
+                        <div class="movies__img-cover"></div>
+
+                        <img class="movies__img" src="./assets/images/made-in-usa.jpg" alt="">
+                    </div>
+
+                    <div class="movies__img-container">
+                        <div class="movies__img-cover"></div>
+
+                        <img class="movies__img" src="./assets/images/la_boca_del_lobo.jpeg" alt="">
+                    </div>
+
+                    <div class="movies__img-container">
+                        <div class="movies__img-cover"></div>
+
+                        <img class="movies__img" src="./assets/images/django.jpg" alt="">
+                    </div>
+
+                    <div class="movies__img-container">
+                        <div class="movies__img-cover"></div>
+
+                        <img class="movies__img" src="./assets/images/noticia-tinta-roja.jpg" alt="">
+                    </div>
+
+                </div>
+
+                <a href="#about" class="next-section-arrow">
+                    <i class="fa-solid fa-arrow-down"></i></i>
+                </a>
+            </div>
+        </section>
+    </main>
+</body>
+
 </html>

@@ -1,10 +1,12 @@
 body{
     --primary-color: #2E2F2F;
+    --primary-color-op: #2e2f2f71;
     --secondary-color: #2f97c1;
+    --terciary-color: #2F323A;
     --light-color: #F8FFFE;
     --text-color: #fff;
-    --title-font-family:  'Merriweather', serif;
-    --text-font-family:'Lato', sans-serif;
+    --title-font-family:  'Roboto', sans-serif;
+    --text-font-family:'Space Mono', monospace;
 
     min-height: 100vh;
 
@@ -12,43 +14,46 @@ body{
 }
 
 .nav{
+    box-sizing: border-box;
+    position:sticky;
+    top:0;
+    left: 0;
+    padding: 0 2rem 0 2rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    z-index: 100;
+    /* position: fixed; */
+    background-color: var(--terciary-color);
+}
+.nav__toggle{
+    display: none;
+}
+.nav__toggle-container{
+    /* background-color: green; */
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    justify-content: center;
+    align-items: center;
 
-    z-index: 100;
-    position: fixed;
-    width: 100%;
-
-}
-
-.nav__toggle{
-    top:2rem;
-    right:2rem;
-    z-index: 300;
-    position: fixed;
-    opacity: 0;
-    margin:0;
-    width: 40px;
+    width:40px;
     height: 40px;
     cursor: pointer;
-    /* outline: 1px solid red; */
 }
+
 
 .nav__toggle-1,
 .nav__toggle-2,
 .nav__toggle-3
 {
     z-index: 200;
-    position:relative;
-    top:2rem;
-    right:2rem;
-
     width: 40px;
     height: 5px;
     
     border-radius: 1rem;
-    background-color: black;
+    background-color: var(--text-color);
     margin-bottom: 5px;
     transition: transform 0.5s cubic-bezier(0.99,-0.26, 0.37, 1.3), opacity 0.5s cubic-bezier(0.99,-0.26, 0.37, 1.3) ;
 }
@@ -61,15 +66,15 @@ body{
 .nav__toggle-3{
     transform-origin: bottom left;    
 }
-.nav__toggle:checked ~ .nav__toggle-1{
+.nav__toggle:checked + .nav__toggle-container > .nav__toggle-1{
     transform: rotate(45deg) translateX(5%);
 }
 
-.nav__toggle:checked ~ .nav__toggle-2{
+.nav__toggle:checked + .nav__toggle-container > .nav__toggle-2{
     transform: rotate(-45deg) translateX(-15%);
 }
 
-.nav__toggle:checked ~ .nav__toggle-3{
+.nav__toggle:checked + .nav__toggle-container > .nav__toggle-3{
     transform: rotate(-45deg)  scale(0);
     opacity: 0;
 }
@@ -84,18 +89,19 @@ body{
     
     position: absolute;
     top:0;
+    right: 0;
     
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     
     padding:2rem;
-    padding-top: 6rem;
+    padding-top: 7rem;
     
     font-size: 2rem;
-    background-color: rgb(104, 104, 104);
+    background-color: var(--terciary-color);
     /* transform: translateX(-1000px); */
     clip-path: circle(0.3% at 100% 0);
     transition: all 0.5s ease;
@@ -104,8 +110,8 @@ body{
 .nav__link-list{
     margin:0;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     flex-direction: column;
     gap: 2rem;
     padding-left:0;
@@ -118,52 +124,19 @@ body{
     text-decoration: none;
 }
 
-.main{
-    z-index: 100;
-    box-sizing: border-box;
-}
-.home{
-    background-color: var(--primary-color);
-    width: 100%;
-    min-height: 100vh;
-}
-
-.home-container{
-    color:var(--text-color);
-    max-width: 1080px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    padding-top: 50vh;
-    padding-right: 2rem;
-    padding-left: 2rem;
-}
-
-.home__cover-image-container{
-    margin:0;
-    position: absolute;
-    top:0;
-    width: 100%;
-}
-.home__cover-image{
-    display: none;
-    width: 100%;
-    height: 50vh;
-    object-fit: cover;
-}
-
 /* Eye logo */
 .logo-ojo-container{
-    align-self: flex-start;
     display: flex;
+    /* width: 100%; */
+    /* align-self: flex-start; */
     padding-left: 1.2rem;
+    padding-right: 1.2rem;
 }
 .ojo-parpados{
-    z-index: 10;
     position: relative;
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
+    /* aspect-ratio:1/1; */
     background-color: var(--light-color); 
     border-radius: 100% 0;
     transform: rotate(45deg);
@@ -191,10 +164,10 @@ body{
         transform: none;
     }
     25% {
-        transform: translateY(20px);
+        transform: translateY(60%);
     }
     50%{
-        transform: translate(20px);
+        transform: translate(50%);
     }
     100%{
         transform: none;
@@ -202,36 +175,142 @@ body{
 }
 .ojo-parpados::after{
     content: "";
-    width: 150px;
-    height: 150px;
+    width: 150%;
+    height: 150%;
     position: absolute;   
     transform-origin: top center;
-    transform: rotate(-45deg) translate(-50px,-170px);
+    transform: rotate(-45deg) translate(-35%,-111%);
     background-color: var(--primary-color);
-
     transition: all 1s cubic-bezier(0.61, 0.86, 0.1, 1.1); 
-
+    
 }
 
 .logo-ojo-container:hover .ojo-parpados::after{
-    transform: rotate(-45deg) translate(-50px,-100px);
-
+    transform: rotate(-45deg) translate(-35%,-65%);
 }
 .logo-ojo-container:hover .ojo-parpados::before{
     transform: scale(1.5);
 }
 
 
+.main{
+    box-sizing: border-box;
+}
+.home{
+    background-image: url(../assets/images/Ojos-que-no-ven-1.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.home, .about, .movies{
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: calc(100vh - 60px);
+    box-sizing: border-box;
+}
 
-.home__title{
+.home-container, .about-container, .movies-container{
+    position: relative;
+    box-sizing: border-box;
+    /* width: 100%; */
+    max-width:1080px;
+    background-color: var(--primary-color-op);
+    min-height: calc(100vh - 60px);
+    
+    color:var(--text-color);
+    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:2rem;
+}
+
+.about-container{
+    min-height: 100vh;
+}
+
+.title-container
+{
+    backdrop-filter: blur(3px);
+    /* background-color: var(--primary-color-op); */
+    margin:0;
+    border: 1px solid var(--light-color);
+    padding: 1em;
+}
+.home__title, .about__title {
+    /* text-align: center; */
     font-family: var(--title-font-family);
     font-size: 4rem;
     margin-top: 0;
     margin-bottom: 0;
     font-weight: 700;
 }
-.home__tittle-description{
+.home__tittle-description, .about__description{
     font-family: var(--text-font-family);
     font-size: 1.2rem;
     font-weight: 300;
 }
+.next-section-arrow{
+    position:absolute;
+    bottom: 1rem;
+    right: 5%;
+    align-self: center;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    animation-name: shake;
+    animation-duration: 1s;
+    animation-timing-function: ease-out ;
+    animation-play-state: running;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+@keyframes shake {
+    from{
+        transform: translateY(0.5rem);
+    }
+    to{
+        transform: translateY(0);
+    }
+}
+.movies__img-container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin-bottom: .5em;
+}
+.movies__img-cover{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background-color: #88888869;
+}
+.movies__img-container:hover{
+    cursor:crosshair;
+}
+.movies__img-container:hover > .movies__img{
+    transform: scale(1.1);
+}
+.movies__img-container:hover > .movies__img-cover{
+    background-color: rgba(221, 44, 44, 0.5);
+
+}
+.movies__img{
+    width: 100%;
+    height: 100%;
+}
+
+.movies__gallery-container{
+    overflow: hidden;
+    max-width: 1080px;
+    /* height: 500px; */
+    columns: 5 320px;
+    column-gap: .5em;
+}
+
