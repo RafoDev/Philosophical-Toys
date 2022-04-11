@@ -1,15 +1,15 @@
 body {
-    --primary-color: #2e2f2f;
-    --primary-color-op: #2e2f2f71;
-    --secondary-color: #2f97c1;
-    --terciary-color: #2f323a;
+    --bg-primary-color: #2e2f2f;
+    --bg-secondary-color: #2E2F2F;
+    --bg-terciary-color: #2e2f2f;
+    --bg-primary-color-op: #2e2f2f71;
+    --secondary-color: #5995ed;
+    --terciary-color: #141515;
     --light-color: #f8fffe;
     --text-color: #fff;
     --title-font-family: "Roboto", sans-serif;
     --text-font-family: "Space Mono", monospace;
-
     min-height: 100vh;
-
     margin: 0;
 }
 
@@ -177,7 +177,7 @@ body {
     position: absolute;
     transform-origin: top center;
     transform: rotate(-45deg) translate(-35%, -111%);
-    background-color: var(--primary-color);
+    background-color: var(--bg-primary-color);
     transition: all 1s cubic-bezier(0.61, 0.86, 0.1, 1.1);
 }
 
@@ -193,13 +193,17 @@ body {
 }
 .home {
     background-image: url(../assets/images/Ojos-que-no-ven-1.jpg);
+    background-color: var(--bg-primary-color-op);    
     background-position: center;
     background-size: cover;
 }
 .home,
 .about,
-.movies {
-    background-color: var(--primary-color);
+.movies,
+.join-us,
+.collab {
+    background-color: var(--bg-primary-color);
+    background-blend-mode:multiply;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -209,44 +213,60 @@ body {
     box-sizing: border-box;
 }
 
+.about{
+    background-color: var(--bg-primary-color);    
+}
+.movies{
+    background-color: var(--bg-secondary-color);    
+}
+.join-us{
+    background-color: var(--bg-terciary-color);    
+}
+.collab{
+    background-color: var(--bg-primary-color);    
+}
+
 .home-container,
 .about-container,
-.movies-container {
+.movies-container,
+.join-us-container,
+.collab-container {
     position: relative;
     box-sizing: border-box;
-    width: 100%;
-    /* max-width:1080px; */
-    background-color: var(--primary-color-op);
+    max-width:1080px;
     min-height: calc(100vh - 60px);
 
     color: var(--text-color);
     gap: 2rem;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 2rem;
 }
-
+.join-us-container{
+    width: 100%;
+}
 .about-container {
     min-height: 100vh;
 }
-.about__image-container {
-    max-width: 1080px;
-}
+
 .about__image {
     width: 100%;
 }
 .title-container {
     backdrop-filter: blur(3px);
-    /* background-color: var(--primary-color-op); */
+    /* background-color: var(--bg-primary-color-op); */
     margin: 0;
     border: 1px solid var(--light-color);
     padding: 1em;
 }
 .home__title,
 .about__title,
-.movies__title {
+.movies__title,
+.join-us__title,
+.collab__title {
     /* text-align: center; */
     font-family: var(--title-font-family);
     font-size: 3em;
@@ -255,11 +275,25 @@ body {
     font-weight: 700;
 }
 .home__tittle-description,
-.about__description {
+.about__description,
+.collab__description {
     font-family: var(--text-font-family);
     font-size: 1.2rem;
     font-weight: 300;
+    position: relative;
 }
+
+.home__tittle-description::after,
+.about__description::after{
+    content:"";
+    width: 30%;
+    height: 1px;
+    background-color: var(--light-color);
+    position: absolute;
+    bottom:-2rem;
+    left:0;
+}
+
 .next-section-arrow {
     position: absolute;
     bottom: 1rem;
@@ -439,6 +473,139 @@ body {
     color: var(--text-color);
 }
 
+.join-us__form{
+    border-radius: 1rem;
+    width: 90%;
+    color:var(--bg-primary-color);
+    background-color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    font-family: var(--text-font-family);
+    font-size: .8rem;
+    padding:1.5rem;
+    box-sizing: border-box;
+}
+.join-us__form-label{
+    margin-bottom: 0.4rem;
+}
+.join-us__form-input{
+    /* border:1px solid red; */
+    border: none;
+    outline: 1px solid rgb(221, 220, 220);
+    /* border-radius: 0.4em; */
+    margin-bottom: 1rem;
+    padding:0.5rem;
+    transition: outline 0.25s ease;
+    background-color: var(--light-color);
+}
+.join-us__form-input:focus{
+    outline: none;
+    border-bottom: 2px solid #333;
+}
+
+.join-us__form-radio-options{
+    margin-bottom: 2rem; 
+}
+.join-us__form-radio-label{
+}
+.button{
+    font-family: inherit;
+    color:var(--text-color);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    padding:0.5rem 1.5rem 0.5rem 1.5rem;
+    align-self: center;
+    cursor: pointer;
+    border:0;
+    transition: all 0.25s ease;
+}
+.join-us__form-button{
+    background-color: var(--secondary-color);
+}
+.button:hover{
+    filter: brightness(1.1);
+    box-shadow: 2px 2px 10px rgba(51, 51, 51, 0.225);
+}
+
+.collab__table{
+    text-align: center;
+    width: 90%;
+    font-size: 1rem;
+    font-family: var(--text-font-family);
+}
+.collab__table-caption{
+    background-color: #2f97c1;
+    /* font-size: 0.5rem; */
+    margin-bottom: 0.5rem;
+}
+.collab__table-row{
+    /* background-color: rgb(96, 95, 95); */
+}
+.collab__table-row-head{
+    background-color: #333;
+    
+}
+.collab__table-head{
+}
+.collab__table-body{
+
+}
+
+.collab__button{
+    background-color: rgb(203, 216, 17);
+}
+
+.footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    background-color: var(--terciary-color);
+    padding:2rem;
+    gap: 2rem;
+    margin:0;
+}
+.footer__title{
+    font-size: 1rem;
+    color:var(--text-color);
+    margin-bottom:0.2rem;
+    letter-spacing: 0.5rem;
+}
+.footer__social-list{
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    gap:2rem;
+    padding-left:0;
+    margin:0;
+}
+.footer__social-list-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    text-align: center;
+    width: 3rem;
+    height: 3rem;
+    list-style:none;
+    background-color: var(--light-color);
+    transition: all 0.25s ease;
+}
+.footer__social-link{
+    color:var(--bg-primary-color);
+}
+
+.footer__description{
+    font-size: 0.9rem;
+    margin:0;
+    color:var(--light-color)
+}
+
+.footer__social-list-item:hover{
+    filter: brightness(1.4);
+}
+
 @media (min-width: 1080px) {
     .nav {
         box-sizing: border-box;
@@ -538,5 +705,8 @@ body {
     }
     .movies__movie-checkbox:checked ~ .movies__movie-info {
         transform: translateY(calc(30% - 282px));
+    }
+    .join-us__form{
+        width: 50%;
     }
 }
