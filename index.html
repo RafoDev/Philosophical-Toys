@@ -85,20 +85,41 @@
         <section id="movies" class="movies">
             <div class="movies-container">
                 <h2 class="movies__title">Peliculas</h2>
-                <div class="movies__movie-gallery-container">
-                    <div class="movies__movie-container">
-                        <label for="gaa" class="movies__movie-opener"></label>
+                <section class="movies__movie-gallery-container">
+                    <article class="movies__movie-container">
+                        <label for="gaa" class="movies__movie-opener">
+                            <img class="movies__movie-cover" src="./assets/images/juliana.jpg" alt="">
+                        </label>
                         <input type="checkbox" id="gaa" class="movies__movie-checkbox">
-                        <img class="movies__movie-cover" src="./assets/images/juliana.jpg" alt="">
                         <div class="movies__movie-info">
                             <label for="gaa" class="movies__movie-closer"><i class="fa-solid fa-x"></i></label>
-                            <img class="movies__movie-cover" src="./assets/images/juliana.jpg" alt="">
+                            <img class="movies__movie-cover movies__movie-cover--info" src="./assets/images/juliana.jpg" alt="">
                             <div class="movies-movie-description">
-                                <p class="movies__movie-title">Juliana</p>
-                                <p class="movies__movie-argument">“Juliana” (1989) es la historia de una niña (Rosa Isabel Morffino) de 13 años que, harta de los maltratos de su padrastro —en el pobrísimo hogar donde vive junto a su madre—, decide huir e integrarse en la banda de niños que trabajan en la calle para el inescrupuloso don Pedro (Julio Vega). Para lograrlo, Juliana se corta el cabello y se disfraza de varón, ya que las niñas no podían ser admitidas en esa pandilla</p>
+                                <p class="movies__movie-title text--big ">Juliana</p>
+                                <p class="movies__movie-data text--small ">1989</p>
+                                <p class="movies__movie-argument text--medium">“Juliana” (1989) es la historia de una niña (Rosa Isabel Morffino) de 13 años que, harta de los maltratos de su padrastro —en el pobrísimo hogar donde vive junto a su madre—, decide huir e integrarse en la banda de niños que trabajan en la calle para el inescrupuloso don Pedro (Julio Vega). Para lograrlo, Juliana se corta el cabello y se disfraza de varón, ya que las niñas no podían ser admitidas en esa pandilla</p>
                             </div>
+                            <footer class="movies__movie-buttons">
+                                <div class="movies__movie-buttons-container">
+                                    <ul class="movies__movie-button-list">
+                                        <li class="movies__movie-button-item">
+                                            <a href="#" class="movies__movie-button-link"><i class="icon fa-solid fa-circle-play"></i>
+                                                <span class="effect-circle-scale"></span>
+                                            <p class="text--small" >Ver</p></a>
+                                        </li>
+                                        <li class="movies__movie-button-item">
+                                            <a href="#" class="movies__movie-button-link"><i class="icon fa-solid fa-thumbs-up"></i>
+                                                <span class="effect-circle-scale"></span><p class="text--small">Me gusta</p></a>
+                                        </li>
+                                        <li class="movies__movie-button-item">
+                                            <a href="#" class="movies__movie-button-link"><i class="icon fa-solid fa-share-nodes"></i>
+                                                <span class="effect-circle-scale"></span><p class="text--small">Compartir</p></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </footer>
                         </div>
-                    </div>
+                    </article>
                     <div class="movies__img-container">
                         <img class="movies__img" src="./assets/images/mariposa.jpg" alt="">
                         <div class="movies__img-cover">
@@ -142,7 +163,7 @@
                         <div class="movies__img-cover"></div>
                     </div>
 
-                </div>
+                </section>
 
                 <a href="#about" class="next-section-arrow">
                     <i class="fa-solid fa-arrow-down"></i></i>
